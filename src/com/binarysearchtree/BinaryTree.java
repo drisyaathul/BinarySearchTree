@@ -49,4 +49,25 @@ public class BinaryTree <T extends Comparable<T>>{
         System.out.print(currentPointer.data+ " ");
         display(currentPointer.nextR);
     }
+
+    public void search(BinaryNode<T> currentPointer, T searchData) {
+        /*
+         * Searching the Node Left or right
+         */
+        while (currentPointer != null) {
+            int value = searchData.compareTo(currentPointer.data);
+            switch (value) {
+                case -1 :
+                    currentPointer = currentPointer.nextL;
+                    break;
+                case 1:
+                    currentPointer = currentPointer.nextR;
+                    break;
+                default:
+                    System.out.println("\nElement is Found");
+                    return;
+            }
+        }
+        System.out.println("\nElement is NOT Found");
+    }
 }
